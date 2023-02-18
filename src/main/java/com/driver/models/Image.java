@@ -15,7 +15,7 @@ public class Image{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	private String description;
-	private String dimention;
+	private String dimensions;
 	@ManyToOne
 	@JoinColumn
 	private Blog blog;
@@ -28,11 +28,11 @@ public class Image{
 
 
 
-	public Image(int id, String description, String dimention, Blog blog) {
+	public Image(int id, String description, String dimensions, Blog blog) {
 		super();
 		this.id = id;
 		this.description = description;
-		this.dimention = dimention;
+		this.dimensions = dimensions;
 		this.blog = blog;
 	}
 
@@ -50,9 +50,7 @@ public class Image{
 
 
 
-	public String getDimention() {
-		return dimention;
-	}
+	
 
 
 
@@ -74,8 +72,17 @@ public class Image{
 
 
 
-	public void setDimention(String dimention) {
-		this.dimention = dimention;
+	
+
+
+	public String getDimensions() {
+		return dimensions;
+	}
+
+
+
+	public void setDimensions(String dimensions) {
+		this.dimensions = dimensions;
 	}
 
 

@@ -29,7 +29,7 @@ public class BlogService {
     	b.setTitle(title);
     	List<Image> l=new ArrayList<>();
     	b.setImageList(l);
-    	b.setDate(new Date());
+    	b.setPubDate(new Date());
     	
        List<Blog> lb=user.getBlogList();
        lb.add(b);

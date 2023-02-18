@@ -24,7 +24,7 @@ public class ImageService {
     	Image image=new Image();
     	image.setBlog(blog);
     	image.setDescription(description);
-    	image.setDimention(dimensions);
+    	image.setDimensions(dimensions);
     	List<Image> l=blog.getImageList();
     	l.add(image);
     	blog.setImageList(l);
@@ -45,7 +45,7 @@ public class ImageService {
     public int countImagesInScreen(Integer id, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
     	Image image=imageRepository2.findById(id).get();
-    	String imagesize=image.getDimention();
+    	String imagesize=image.getDimensions();
     	String il=imagesize.substring(0,imagesize.indexOf("*"));
     	String ib=imagesize.substring(imagesize.indexOf("*")+1);
     	String sl=screenDimensions.substring(0,screenDimensions.indexOf("*"));

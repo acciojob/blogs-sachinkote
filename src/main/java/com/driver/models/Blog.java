@@ -21,7 +21,7 @@ public class Blog{
 	private int id;
 	private String title;
 	private String content;
-	private Date date;
+	private Date pubDate;
 	
 	@ManyToOne
 	@JoinColumn
@@ -34,12 +34,12 @@ public class Blog{
 		super();
 	}
 
-	public Blog(int id, String title, String content, Date date, User user, List<Image> imageList) {
+	public Blog(int id, String title, String content, Date pubDate, User user, List<Image> imageList) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.date = date;
+		this.pubDate = pubDate;
 		this.user = user;
 		this.imageList = imageList;
 	}
@@ -56,9 +56,7 @@ public class Blog{
 		return content;
 	}
 
-	public Date getDate() {
-		return date;
-	}
+	
 
 	public User getUser() {
 		return user;
@@ -80,16 +78,21 @@ public class Blog{
 		this.content = content;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	
 	public void setUser(User user) {
 		this.user = user;
 	}
 
 	public void setImageList(List<Image> imageList) {
 		this.imageList = imageList;
+	}
+
+	public Date getPubDate() {
+		return pubDate;
+	}
+
+	public void setPubDate(Date pubDate) {
+		this.pubDate = pubDate;
 	}
 	
 	
