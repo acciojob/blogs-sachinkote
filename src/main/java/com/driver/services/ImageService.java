@@ -25,34 +25,34 @@ public class ImageService {
     	image.setBlog(blog);
     	image.setDescription(description);
     	image.setDimensions(dimensions);
-    	List<Image> l=blog.getImageList();
-    	l.add(image);
-    	blog.setImageList(l);
     	
-    	return imageRepository2.save(image);
+    	
+    	
+    	 imageRepository2.save(image);
+        return image;
     	
     }
 
     public void deleteImage(Integer id){
     	Image image=imageRepository2.findById(id).get();
-    	Blog b=image.getBlog();
-    	List<Image> l=b.getImageList();
-    	l.remove(image);
-    	b.setImageList(l);
-    	imageRepository2.deleteById(id);
+    	
+    	
+    	
+    	imageRepository2.delete(image);
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions) {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
+        int c=0;
     	Image image=imageRepository2.findById(id).get();
     	String imagesize=image.getDimensions();
     	String il=imagesize.substring(0,imagesize.indexOf("*"));
     	String ib=imagesize.substring(imagesize.indexOf("*")+1);
     	String sl=screenDimensions.substring(0,screenDimensions.indexOf("*"));
     	String sb=screenDimensions.substring(screenDimensions.indexOf("*")+1);
-    	return (Integer.parseInt(sb)*Integer.parseInt(sl))/(Integer.parseInt(ib)*Integer.parseInt(il));
+    	 c= (Integer.parseInt(sb)*Integer.parseInt(sl))/(Integer.parseInt(ib)*Integer.parseInt(il));
     	
-    	
+    	return c;
 
     }
 }
